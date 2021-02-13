@@ -1,0 +1,22 @@
+title UC04 - Cadastrar cliente
+
+actor Usuário
+boundary Interface
+control ClienteController
+entity Cliente
+
+Usuário->Interface: 1: adicionarClienteNaoCadastrado()
+activate Usuário
+Interface->ClienteController: 1.1: adicionarClienteNaoCadastrado()
+activate Interface
+ClienteController->Cliente: 1.1.1: adicionarClienteNaoCadastrado()
+activate ClienteController
+activate Cliente
+space 
+deactivate Cliente
+space
+deactivate ClienteController
+space
+deactivate Interface
+space 
+deactivate Usuário

@@ -1,0 +1,17 @@
+title UC10 - Consultar ajuda
+
+actor Usuario
+boundary Interface
+participant UserControlAjuda
+
+Usuario->Interface: 1: consultarSolucao(id)
+activate Usuario
+activate Interface
+Interface->UserControlAjuda: 1.1: consultarSolucao(id)
+activate UserControlAjuda
+UserControlAjuda->Interface: 1.2: exibirSolucao(id)
+deactivate UserControlAjuda
+Interface-->Usuario:solucao
+deactivate Interface
+space
+deactivate Usuario

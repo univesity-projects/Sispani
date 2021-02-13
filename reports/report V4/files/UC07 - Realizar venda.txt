@@ -1,0 +1,136 @@
+title Realizar venda
+
+actor Usuario
+boundary Interface
+control VendaController
+entity Venda
+control ProdutoController
+entity Produto
+control ClienteController
+entity Cliente
+
+Usuario->Interface:1: abrirTelaVenda()
+activate Usuario
+activate Interface
+space
+deactivate Interface
+space
+deactivate Usuario
+
+loop Para cada produto
+activate Usuario
+Usuario->Interface:2: adicionarProduto()
+activate Interface
+Interface->VendaController:2.1:verificarProduto()
+activate VendaController
+VendaController->ProdutoController:2.1.1: verificarProduto()
+activate ProdutoController
+ProdutoController->Produto:2.1.1.1:verificarProduto()
+activate Produto
+Produto-->ProdutoController:produto
+deactivate Produto
+deactivate ProdutoController
+ProdutoController-->VendaController:produto
+VendaController-->Interface:produto
+deactivate VendaController
+space
+deactivate Interface
+space
+deactivate Usuario
+end
+
+opt Caso seja cliente
+activate Usuario
+Usuario->Interface:3: adicionarCliente()
+activate Interface
+Interface->VendaController: 3.1: verificarCliente()
+activate VendaController
+VendaController->ClienteController: 3.1.1: verificarCliente()
+activate ClienteController
+ClienteController->Cliente: 3.1.1.1: verificarCliente()
+activate Cliente
+Cliente-->ClienteController: cliente
+deactivate Cliente
+ClienteController-->VendaController: cliente
+deactivate ClienteController
+VendaController-->Interface: cliente
+deactivate VendaController
+space
+deactivate Interface
+space
+deactivate Usuario
+end
+
+opt Cliente não cadastrado quer CPF na nota
+activate Usuario
+Usuario->Interface:4: adicionarClienteNaoCadastrado()
+activate Interface
+Interface->VendaController: 4.1: adicionarDados()
+box over VendaController:UC04 - Cadastrar Cliente
+deactivate Interface
+space
+deactivate Usuario
+end
+
+opt Cliente desistiu do item ou foi passado um item a mais
+Usuario->Interface:5: cancelarItem()
+activate Usuario
+activate Interface
+Interface->VendaController: 5.1: removerItem()
+deactivate Interface
+space
+deactivate Usuario
+end
+
+opt Conceder desconto
+activate Usuario
+Usuario->Interface:6: descontoItem()
+activate Interface
+Interface->Interface: 6.1: selecionarItem()
+activate Interface
+Interface->VendaController: 6.1.1: descontar()
+activate VendaController
+space
+deactivate VendaController
+space
+deactivate Interface
+space
+deactivate Interface
+space
+deactivate Usuario
+end
+
+opt Cancelar venda
+activate Usuario
+Usuario->Interface:7: cancelarVenda()
+activate Interface
+Interface->Interface: 7.1: fecharTela()
+activate Interface
+Interface->VendaController: 7.1.1: destruir()
+activate VendaController
+space
+deactivate VendaController
+space
+deactivate Interface
+space
+deactivate Interface
+space
+deactivate Usuario
+end
+
+Usuario->Interface:8: finalizarVenda()
+activate Usuario
+activate Interface
+Interface->VendaController: 8.1: finalizar()
+Interface->VendaController: 8.2: adicionarPagamento()
+VendaController->Venda: 8.2.1: adicionarPagamento()
+activate VendaController
+activate Venda
+space
+deactivate Venda
+space
+deactivate VendaController
+space
+deactivate Interface
+space
+deactivate Usuario

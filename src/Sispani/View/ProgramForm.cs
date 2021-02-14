@@ -6,7 +6,7 @@ namespace Sispani.View
 {
     public partial class ProgramForm : Form
     {
-        private LoginForm _login;
+
 
         public ProgramForm()
         {
@@ -15,16 +15,20 @@ namespace Sispani.View
 
         private void FormProgram_Load(object sender, EventArgs e)
         {
-            _login = new LoginForm();
-            _login.ShowDialog();
+            var login = new LoginForm();
+            var response =login.ShowDialog();
+			if (response == DialogResult.OK)
+			{
+                LoginSuccessLoad();
+
+            }
+            else if (response == DialogResult.Cancel)
+            {
+                Application.Exit();
+            }
         }
 
-        public void LoginExit()
-        {
-            Application.Exit();
-        }
-
-        public void LoginLoad()
+        public void LoginSuccessLoad()
         {
             ucMain.LoadGraphic();
 

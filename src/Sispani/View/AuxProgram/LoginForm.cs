@@ -7,9 +7,6 @@ namespace Sispani.View.AuxProgram
 {
     public partial class LoginForm : Form
     {
-        private ProgramForm _program = (ProgramForm)System.Windows.Forms.Application.OpenForms[0];
-        private bool _programExit = true;
-
         public LoginForm()
         {
             InitializeComponent();
@@ -17,15 +14,14 @@ namespace Sispani.View.AuxProgram
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            txtPassword.PasswordChar = '*';
+            txtPassword.PasswordChar = '•';
         }
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
             if (LoginDAO.CheckLogin(txtLogin.Text, txtPassword.Text))
             {
-                _programExit = false;
-                _program.LoginLoad();
+                DialogResult = DialogResult.OK;
                 Close();
             }
             else
@@ -47,9 +43,9 @@ namespace Sispani.View.AuxProgram
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (_programExit)
+			if (DialogResult != DialogResult.OK)
             {
-                _program.LoginExit();
+                DialogResult = DialogResult.Cancel;
             }
         }
     }

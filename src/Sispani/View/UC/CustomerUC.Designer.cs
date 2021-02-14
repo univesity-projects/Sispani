@@ -119,7 +119,7 @@
 			this.dtpDeleteBirthday = new System.Windows.Forms.DateTimePicker();
 			this.label27 = new System.Windows.Forms.Label();
 			this.btnDelete = new System.Windows.Forms.Button();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmiExportCSV = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBoxDireita.SuspendLayout();
@@ -129,7 +129,7 @@
 			this.tabPageCadastro.SuspendLayout();
 			this.tabPageAlteracao.SuspendLayout();
 			this.tabPageExclusao.SuspendLayout();
-			this.menuStrip1.SuspendLayout();
+			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBoxDireita
@@ -1330,16 +1330,16 @@
 			this.btnDelete.UseVisualStyleBackColor = false;
 			this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
 			// 
-			// menuStrip1
+			// menuStrip
 			// 
-			this.menuStrip1.BackColor = System.Drawing.Color.White;
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.menuStrip.BackColor = System.Drawing.Color.White;
+			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1159, 24);
-			this.menuStrip1.TabIndex = 11;
-			this.menuStrip1.Text = "menuStrip1";
+			this.menuStrip.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip.Name = "menuStrip";
+			this.menuStrip.Size = new System.Drawing.Size(1159, 24);
+			this.menuStrip.TabIndex = 11;
+			this.menuStrip.Text = "menuStrip1";
 			// 
 			// arquivoToolStripMenuItem
 			// 
@@ -1363,7 +1363,7 @@
 			this.BackColor = System.Drawing.Color.White;
 			this.Controls.Add(this.groupBoxDireita);
 			this.Controls.Add(this.groupBoxEsquerda);
-			this.Controls.Add(this.menuStrip1);
+			this.Controls.Add(this.menuStrip);
 			this.Name = "CustomerUC";
 			this.Size = new System.Drawing.Size(1159, 596);
 			this.Load += new System.EventHandler(this.CustomerUC_Load);
@@ -1377,8 +1377,8 @@
 			this.tabPageAlteracao.PerformLayout();
 			this.tabPageExclusao.ResumeLayout(false);
 			this.tabPageExclusao.PerformLayout();
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
+			this.menuStrip.ResumeLayout(false);
+			this.menuStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1389,7 +1389,7 @@
         private System.Windows.Forms.GroupBox groupBoxDireita;
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.GroupBox groupBoxEsquerda;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageCadastro;

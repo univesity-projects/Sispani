@@ -59,11 +59,12 @@ namespace Sispani.View
             ((MainUC)_currentUserControl).LoadGraphic();
 
             // Carregamento dos dados
+            lblTradeName.Show();
+            lblCompanyName.Show();
+            lblCNPJ.Show();
             lblTradeName.Text = "Nome Fantasia";
             lblCompanyName.Text = "Nome Jurídico";
             lblCNPJ.Text = "CNPJ " + "000.000.000/0000-00";
-
-            labelVersion.Text = "1.0.0";
         }
 
         private void SetCurrentUserControl(int index)

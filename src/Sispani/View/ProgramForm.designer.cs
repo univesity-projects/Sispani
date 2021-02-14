@@ -36,7 +36,6 @@
 			this.lblCNPJ = new System.Windows.Forms.Label();
 			this.buttonAjuda = new System.Windows.Forms.Button();
 			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-			this.labelVersion = new System.Windows.Forms.Label();
 			this.Wrapper = new System.Windows.Forms.Panel();
 			this.SideBarMenu = new System.Windows.Forms.Panel();
 			this.btnHome = new System.Windows.Forms.Button();
@@ -61,7 +60,9 @@
 			this.TopWrapper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.TopWrapper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+			this.TopWrapper.Controls.Add(this.pictureBoxLogo);
 			this.TopWrapper.Controls.Add(this.panelEmpresa);
+			this.TopWrapper.Controls.Add(this.pictureBoxLogoNome);
 			this.TopWrapper.Controls.Add(this.buttonAjuda);
 			this.TopWrapper.Location = new System.Drawing.Point(0, 0);
 			this.TopWrapper.Name = "TopWrapper";
@@ -70,12 +71,13 @@
 			// 
 			// panelEmpresa
 			// 
+			this.panelEmpresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.panelEmpresa.Controls.Add(this.lblCompanyName);
 			this.panelEmpresa.Controls.Add(this.lblTradeName);
 			this.panelEmpresa.Controls.Add(this.lblCNPJ);
-			this.panelEmpresa.Location = new System.Drawing.Point(0, 0);
+			this.panelEmpresa.Location = new System.Drawing.Point(105, 0);
 			this.panelEmpresa.Name = "panelEmpresa";
-			this.panelEmpresa.Size = new System.Drawing.Size(1156, 60);
+			this.panelEmpresa.Size = new System.Drawing.Size(1051, 60);
 			this.panelEmpresa.TabIndex = 15;
 			// 
 			// lblCompanyName
@@ -137,24 +139,12 @@
 			this.pictureBoxLogo.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pictureBoxLogo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.ErrorImage")));
 			this.pictureBoxLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.InitialImage")));
-			this.pictureBoxLogo.Location = new System.Drawing.Point(25, 543);
+			this.pictureBoxLogo.Location = new System.Drawing.Point(35, 8);
 			this.pictureBoxLogo.Name = "pictureBoxLogo";
-			this.pictureBoxLogo.Size = new System.Drawing.Size(53, 29);
+			this.pictureBoxLogo.Size = new System.Drawing.Size(35, 20);
 			this.pictureBoxLogo.TabIndex = 0;
 			this.pictureBoxLogo.TabStop = false;
 			this.pictureBoxLogo.Click += new System.EventHandler(this.PictureBoxLogo_Click);
-			// 
-			// labelVersion
-			// 
-			this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.labelVersion.AutoSize = true;
-			this.labelVersion.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelVersion.ForeColor = System.Drawing.Color.White;
-			this.labelVersion.Location = new System.Drawing.Point(5, 606);
-			this.labelVersion.Name = "labelVersion";
-			this.labelVersion.Size = new System.Drawing.Size(43, 13);
-			this.labelVersion.TabIndex = 10;
-			this.labelVersion.Text = "v0.0.0";
 			// 
 			// Wrapper
 			// 
@@ -174,9 +164,6 @@
 			this.SideBarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.SideBarMenu.Controls.Add(this.btnHome);
 			this.SideBarMenu.Controls.Add(this.buttonContaCliente);
-			this.SideBarMenu.Controls.Add(this.pictureBoxLogo);
-			this.SideBarMenu.Controls.Add(this.labelVersion);
-			this.SideBarMenu.Controls.Add(this.pictureBoxLogoNome);
 			this.SideBarMenu.Controls.Add(this.buttonRelatorio);
 			this.SideBarMenu.Controls.Add(this.buttonClientes);
 			this.SideBarMenu.Controls.Add(this.buttonProdutos);
@@ -234,9 +221,9 @@
 			this.pictureBoxLogoNome.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pictureBoxLogoNome.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogoNome.ErrorImage")));
 			this.pictureBoxLogoNome.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogoNome.InitialImage")));
-			this.pictureBoxLogoNome.Location = new System.Drawing.Point(7, 569);
+			this.pictureBoxLogoNome.Location = new System.Drawing.Point(17, 25);
 			this.pictureBoxLogoNome.Name = "pictureBoxLogoNome";
-			this.pictureBoxLogoNome.Size = new System.Drawing.Size(91, 44);
+			this.pictureBoxLogoNome.Size = new System.Drawing.Size(70, 28);
 			this.pictureBoxLogoNome.TabIndex = 11;
 			this.pictureBoxLogoNome.TabStop = false;
 			this.pictureBoxLogoNome.Click += new System.EventHandler(this.PictureBoxLogoNome_Click);
@@ -363,7 +350,6 @@
 			this.panelEmpresa.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
 			this.SideBarMenu.ResumeLayout(false);
-			this.SideBarMenu.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoNome)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -382,7 +368,6 @@
         private System.Windows.Forms.Button buttonClientes;
         private System.Windows.Forms.Button buttonProdutos;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
-        private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lblTradeName;
         private System.Windows.Forms.Label lblCNPJ;

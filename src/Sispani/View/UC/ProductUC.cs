@@ -16,7 +16,7 @@ namespace Sispani.View.UC
         private void ProductUC_Load(object sender, EventArgs e)
         {
             cboInsertUnity.SelectedItem = cboInsertUnity.Items[0];
-            dataGridView.DataSource = ProductController.Select();
+            UpdateDataGridView();
         }
 
         private void UpdateDataGridView()
@@ -84,6 +84,7 @@ namespace Sispani.View.UC
         private void SetAlterEnables(bool enable)
         {
             txtAlterCode.Enabled = !enable;
+            cboAlterUnity.Enabled = enable;
             txtAlterName.Enabled = enable;
             txtAlterAmount.Enabled = enable;
             txtAlterCost.Enabled = enable;

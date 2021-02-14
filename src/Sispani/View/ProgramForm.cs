@@ -1,12 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Sispani.View.AuxProgram;
+using Sispani.View.UC;
 
 namespace Sispani.View
 {
     public partial class ProgramForm : Form
     {
-
+        private const int UC_HOME = 0;
+        private const int UC_PRODUCTS = 1;
+        private const int UC_CUSTOMER = 2;
+        private const int UC_BILL = 3;
+        private const int UC_REPORT = 4;
+        private const int UC_HELP = 5;
+        private List<UserControl> _userControls;
+        private UserControl _currentUserControl;
 
         public ProgramForm()
         {
@@ -16,21 +25,38 @@ namespace Sispani.View
         private void FormProgram_Load(object sender, EventArgs e)
         {
             var login = new LoginForm();
-            var response =login.ShowDialog();
+            var response = login.ShowDialog();
+
 			if (response == DialogResult.OK)
 			{
-                LoginSuccessLoad();
+                InitialConfigs();
 
             }
-            else if (response == DialogResult.Cancel)
+            else if (response == DialogResult.Abort)
             {
                 Application.Exit();
             }
         }
 
-        public void LoginSuccessLoad()
+        public void InitialConfigs()
         {
-            ucMain.LoadGraphic();
+            _userControls = new List<UserControl>
+            {
+                new MainUC(),
+                new ProductUC(),
+                new CustomerUC(),
+                new BillUC(),
+                new ReportUC(),
+                new HelpUC()
+            };
+            foreach (var uc in _userControls)
+            {
+                uc.Dock = DockStyle.Fill;
+                uc.Hide();
+                Wrapper.Controls.Add(uc);
+            }
+            SetCurrentUserControl(UC_HOME);
+            ((MainUC)_currentUserControl).LoadGraphic();
 
             // Carregamento dos dados
             lblTradeName.Text = "Nome Fantasia";
@@ -38,146 +64,52 @@ namespace Sispani.View
             lblCNPJ.Text = "CNPJ " + "000.000.000/0000-00";
 
             labelVersion.Text = "1.0.0";
-
-            // Carregamentos das User Control
-            // enables
-            ucHelp.Enabled = false;
-            ucCustomer.Enabled = false;
-            ucProduct.Enabled = false;
-            ucReport.Enabled = false;
-            ucBill.Enabled = false;
-            // escondendo
-            ucHelp.Hide();
-            ucCustomer.Hide();
-            ucProduct.Hide();
-            ucReport.Hide();
-            ucBill.Hide();
-            //user control inicial
-            ucMain.Enabled = true;
-            ucMain.BringToFront();
-            ucMain.Show();
         }
 
-        private void ButtonVenda_Click(object sender, EventArgs e)
+        private void SetCurrentUserControl(int index)
+		{
+            if (_currentUserControl == _userControls[index]) return;
+            foreach (var uc in _userControls)
+            {
+                uc.Hide();
+            }
+            _currentUserControl = _userControls[index];
+            _currentUserControl.Show();
+        }
+
+        private void Home_Click(object sender, EventArgs e)
+        {
+            SetCurrentUserControl(UC_HOME);
+        }
+
+        private void Sale_Click(object sender, EventArgs e)
         {
             new SaleForm().ShowDialog();
         }
 
-        private void ButtonProdutos_Click(object sender, EventArgs e)
+        private void Products_Click(object sender, EventArgs e)
         {
-            if (ucProduct.Enabled)
-            {
-                ucProduct.Enabled = false;
-                ucProduct.Hide();
-
-                // mostrar user control inicial
-                ucMain.Show();
-            }
-            else
-            {
-                ucProduct.Enabled = true;
-                ucProduct.Show();
-                ucProduct.BringToFront();
-
-                // esconder outras
-                ucHelp.Enabled = false;
-                ucCustomer.Enabled = false;
-                ucReport.Enabled = false;
-                ucBill.Enabled = false;
-                ucMain.Hide();
-                ucCustomer.Hide();
-                ucHelp.Hide();
-                ucReport.Hide();
-                ucBill.Hide();
-            }
+            SetCurrentUserControl(UC_PRODUCTS);
         }
 
-        private void ButtonClientes_Click(object sender, EventArgs e)
+        private void Customers_Click(object sender, EventArgs e)
         {
-            if (ucCustomer.Enabled)
-            {
-                ucCustomer.Enabled = false;
-                ucCustomer.Hide();
-
-                // mostrar user control inicial
-                ucMain.Show();
-            }
-            else
-            {
-                ucCustomer.Enabled = true;
-                ucCustomer.Show();
-                ucCustomer.BringToFront();
-
-                // esconder outras
-                ucHelp.Enabled = false;
-                ucProduct.Enabled = false;
-                ucReport.Enabled = false;
-                ucBill.Enabled = false;
-                ucMain.Hide();
-                ucHelp.Hide();
-                ucProduct.Hide();
-                ucReport.Hide();
-                ucBill.Hide();
-            }
+            SetCurrentUserControl(UC_CUSTOMER);
         }
 
-        private void ButtonRelatorio_Click(object sender, EventArgs e)
+        private void Bill_Click(object sender, EventArgs e)
         {
-            if (ucReport.Enabled)
-            {
-                ucReport.Enabled = false;
-                ucReport.Hide();
-
-                // mostrar user control inicial
-                ucMain.Show();
-            }
-            else
-            {
-                ucReport.InitialData();
-                ucReport.Enabled = true;
-                ucReport.Show();
-                ucReport.BringToFront();
-
-                // esconder outras
-                ucHelp.Enabled = false;
-                ucCustomer.Enabled = false;
-                ucProduct.Enabled = false;
-                ucBill.Enabled = false;
-                ucMain.Hide();
-                ucCustomer.Hide();
-                ucProduct.Hide();
-                ucHelp.Hide();
-                ucBill.Hide();
-            }
+            SetCurrentUserControl(UC_BILL);
         }
 
-        private void ButtonAjuda_Click(object sender, EventArgs e)
+        private void Reports_Click(object sender, EventArgs e)
         {
-            if (ucHelp.Enabled)
-            {
-                ucHelp.Enabled = false;
-                ucHelp.Hide();
+            SetCurrentUserControl(UC_REPORT);
+        }
 
-                // mostrar user control inicial
-                ucMain.Show();
-            }
-            else
-            {
-                ucHelp.Enabled = true;
-                ucHelp.Show();
-                ucHelp.BringToFront();
-
-                // esconder outras
-                ucCustomer.Enabled = false;
-                ucProduct.Enabled = false;
-                ucReport.Enabled = false;
-                ucBill.Enabled = false;
-                ucMain.Hide();
-                ucCustomer.Hide();
-                ucProduct.Hide();
-                ucReport.Hide();
-                ucBill.Hide();
-            }
+        private void Help_Click(object sender, EventArgs e)
+        {
+            SetCurrentUserControl(UC_HELP);
         }
 
         private void PictureBoxLogo_Click(object sender, EventArgs e)
@@ -189,34 +121,5 @@ namespace Sispani.View
         {
             System.Diagnostics.Process.Start("https://sispani.wixsite.com/home");
         }
-
-        private void buttonContaCliente_Click(object sender, EventArgs e)
-        {
-            if (ucBill.Enabled)
-            {
-                ucBill.Enabled = false;
-                ucBill.Hide();
-
-                // mostrar user control inicial
-                ucMain.Show();
-            }
-            else
-            {
-                ucBill.Enabled = true;
-                ucBill.Show();
-                ucBill.BringToFront();
-
-                // esconder outras
-                ucCustomer.Enabled = false;
-                ucProduct.Enabled = false;
-                ucReport.Enabled = false;
-                ucHelp.Enabled = false;
-                ucMain.Hide();
-                ucCustomer.Hide();
-                ucProduct.Hide();
-                ucReport.Hide();
-                ucHelp.Hide();
-            }
-        }
-    }
+	}
 }

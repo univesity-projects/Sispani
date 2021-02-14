@@ -38,13 +38,8 @@
 			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
 			this.labelVersion = new System.Windows.Forms.Label();
 			this.Wrapper = new System.Windows.Forms.Panel();
-			this.ucMain = new Sispani.View.UC.MainUC();
-			this.ucHelp = new Sispani.View.UC.HelpUC();
-			this.ucCustomer = new Sispani.View.UC.CustomerUC();
-			this.ucProduct = new Sispani.View.UC.ProductUC();
-			this.ucReport = new Sispani.View.UC.ReportUC();
-			this.ucBill = new Sispani.View.UC.BillUC();
 			this.SideBarMenu = new System.Windows.Forms.Panel();
+			this.btnHome = new System.Windows.Forms.Button();
 			this.buttonContaCliente = new System.Windows.Forms.Button();
 			this.pictureBoxLogoNome = new System.Windows.Forms.PictureBox();
 			this.buttonRelatorio = new System.Windows.Forms.Button();
@@ -53,11 +48,9 @@
 			this.buttonVenda = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.progressBar = new System.Windows.Forms.ProgressBar();
-			this.btnHome = new System.Windows.Forms.Button();
 			this.TopWrapper.SuspendLayout();
 			this.panelEmpresa.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-			this.Wrapper.SuspendLayout();
 			this.SideBarMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoNome)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -134,7 +127,7 @@
 			this.buttonAjuda.Text = "Ajuda";
 			this.buttonAjuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.buttonAjuda.UseVisualStyleBackColor = true;
-			this.buttonAjuda.Click += new System.EventHandler(this.ButtonAjuda_Click);
+			this.buttonAjuda.Click += new System.EventHandler(this.Help_Click);
 			// 
 			// pictureBoxLogo
 			// 
@@ -169,82 +162,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.Wrapper.BackColor = System.Drawing.Color.White;
-			this.Wrapper.Controls.Add(this.ucMain);
-			this.Wrapper.Controls.Add(this.ucHelp);
-			this.Wrapper.Controls.Add(this.ucCustomer);
-			this.Wrapper.Controls.Add(this.ucProduct);
-			this.Wrapper.Controls.Add(this.ucReport);
-			this.Wrapper.Controls.Add(this.ucBill);
 			this.Wrapper.Location = new System.Drawing.Point(105, 60);
 			this.Wrapper.Name = "Wrapper";
 			this.Wrapper.Size = new System.Drawing.Size(1159, 596);
 			this.Wrapper.TabIndex = 1;
-			// 
-			// ucMain
-			// 
-			this.ucMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ucMain.BackColor = System.Drawing.Color.White;
-			this.ucMain.Location = new System.Drawing.Point(0, 0);
-			this.ucMain.Name = "ucMain";
-			this.ucMain.Size = new System.Drawing.Size(1159, 596);
-			this.ucMain.TabIndex = 7;
-			// 
-			// ucHelp
-			// 
-			this.ucHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ucHelp.BackColor = System.Drawing.Color.White;
-			this.ucHelp.Location = new System.Drawing.Point(0, 0);
-			this.ucHelp.Name = "ucHelp";
-			this.ucHelp.Size = new System.Drawing.Size(1159, 596);
-			this.ucHelp.TabIndex = 3;
-			// 
-			// ucCustomer
-			// 
-			this.ucCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ucCustomer.BackColor = System.Drawing.Color.White;
-			this.ucCustomer.Location = new System.Drawing.Point(0, 0);
-			this.ucCustomer.Name = "ucCustomer";
-			this.ucCustomer.Size = new System.Drawing.Size(1159, 596);
-			this.ucCustomer.TabIndex = 4;
-			// 
-			// ucProduct
-			// 
-			this.ucProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ucProduct.BackColor = System.Drawing.Color.White;
-			this.ucProduct.Location = new System.Drawing.Point(0, 0);
-			this.ucProduct.Name = "ucProduct";
-			this.ucProduct.Size = new System.Drawing.Size(1159, 596);
-			this.ucProduct.TabIndex = 5;
-			// 
-			// ucReport
-			// 
-			this.ucReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ucReport.BackColor = System.Drawing.Color.White;
-			this.ucReport.Location = new System.Drawing.Point(0, 0);
-			this.ucReport.Name = "ucReport";
-			this.ucReport.Size = new System.Drawing.Size(1159, 596);
-			this.ucReport.TabIndex = 6;
-			// 
-			// ucBill
-			// 
-			this.ucBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ucBill.BackColor = System.Drawing.Color.White;
-			this.ucBill.Location = new System.Drawing.Point(0, 0);
-			this.ucBill.Name = "ucBill";
-			this.ucBill.Size = new System.Drawing.Size(1159, 596);
-			this.ucBill.TabIndex = 8;
 			// 
 			// SideBarMenu
 			// 
@@ -265,6 +186,26 @@
 			this.SideBarMenu.Size = new System.Drawing.Size(105, 621);
 			this.SideBarMenu.TabIndex = 2;
 			// 
+			// btnHome
+			// 
+			this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnHome.FlatAppearance.BorderSize = 0;
+			this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnHome.ForeColor = System.Drawing.Color.White;
+			this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+			this.btnHome.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.btnHome.Location = new System.Drawing.Point(0, 0);
+			this.btnHome.Margin = new System.Windows.Forms.Padding(0);
+			this.btnHome.Name = "btnHome";
+			this.btnHome.Size = new System.Drawing.Size(105, 70);
+			this.btnHome.TabIndex = 13;
+			this.btnHome.TabStop = false;
+			this.btnHome.Text = "Início";
+			this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.btnHome.UseVisualStyleBackColor = true;
+			this.btnHome.Click += new System.EventHandler(this.Home_Click);
+			// 
 			// buttonContaCliente
 			// 
 			this.buttonContaCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -283,7 +224,7 @@
 			this.buttonContaCliente.Text = "Conta do Cliente";
 			this.buttonContaCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.buttonContaCliente.UseVisualStyleBackColor = true;
-			this.buttonContaCliente.Click += new System.EventHandler(this.buttonContaCliente_Click);
+			this.buttonContaCliente.Click += new System.EventHandler(this.Bill_Click);
 			// 
 			// pictureBoxLogoNome
 			// 
@@ -318,7 +259,7 @@
 			this.buttonRelatorio.Text = "Relatório";
 			this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.buttonRelatorio.UseVisualStyleBackColor = true;
-			this.buttonRelatorio.Click += new System.EventHandler(this.ButtonRelatorio_Click);
+			this.buttonRelatorio.Click += new System.EventHandler(this.Reports_Click);
 			// 
 			// buttonClientes
 			// 
@@ -338,7 +279,7 @@
 			this.buttonClientes.Text = "Clientes";
 			this.buttonClientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.buttonClientes.UseVisualStyleBackColor = true;
-			this.buttonClientes.Click += new System.EventHandler(this.ButtonClientes_Click);
+			this.buttonClientes.Click += new System.EventHandler(this.Customers_Click);
 			// 
 			// buttonProdutos
 			// 
@@ -358,7 +299,7 @@
 			this.buttonProdutos.Text = "Produtos";
 			this.buttonProdutos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.buttonProdutos.UseVisualStyleBackColor = true;
-			this.buttonProdutos.Click += new System.EventHandler(this.ButtonProdutos_Click);
+			this.buttonProdutos.Click += new System.EventHandler(this.Products_Click);
 			// 
 			// buttonVenda
 			// 
@@ -378,7 +319,7 @@
 			this.buttonVenda.Text = "Venda";
 			this.buttonVenda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.buttonVenda.UseVisualStyleBackColor = true;
-			this.buttonVenda.Click += new System.EventHandler(this.ButtonVenda_Click);
+			this.buttonVenda.Click += new System.EventHandler(this.Sale_Click);
 			// 
 			// panel1
 			// 
@@ -402,25 +343,6 @@
 			this.progressBar.TabIndex = 0;
 			this.progressBar.Visible = false;
 			// 
-			// btnHome
-			// 
-			this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnHome.FlatAppearance.BorderSize = 0;
-			this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnHome.ForeColor = System.Drawing.Color.White;
-			this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-			this.btnHome.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.btnHome.Location = new System.Drawing.Point(0, 0);
-			this.btnHome.Margin = new System.Windows.Forms.Padding(0);
-			this.btnHome.Name = "btnHome";
-			this.btnHome.Size = new System.Drawing.Size(105, 70);
-			this.btnHome.TabIndex = 13;
-			this.btnHome.TabStop = false;
-			this.btnHome.Text = "Início";
-			this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.btnHome.UseVisualStyleBackColor = true;
-			// 
 			// ProgramForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,7 +362,6 @@
 			this.panelEmpresa.ResumeLayout(false);
 			this.panelEmpresa.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-			this.Wrapper.ResumeLayout(false);
 			this.SideBarMenu.ResumeLayout(false);
 			this.SideBarMenu.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoNome)).EndInit();
@@ -467,14 +388,8 @@
         private System.Windows.Forms.Label lblCNPJ;
         private System.Windows.Forms.Panel panelEmpresa;
         private System.Windows.Forms.Label lblCompanyName;
-        private UC.HelpUC ucHelp;
-        private UC.CustomerUC ucCustomer;
-        private UC.ProductUC ucProduct;
-        private UC.ReportUC ucReport;
-        private UC.MainUC ucMain;
         private System.Windows.Forms.PictureBox pictureBoxLogoNome;
         private System.Windows.Forms.Button buttonContaCliente;
-        private UC.BillUC ucBill;
 		private System.Windows.Forms.Button btnHome;
 	}
 }

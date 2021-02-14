@@ -45,7 +45,7 @@ namespace Sispani.View.AuxProgram
         {
 			if (DialogResult != DialogResult.OK)
             {
-                DialogResult = DialogResult.Cancel;
+                DialogResult = DialogResult.Abort;
             }
         }
     }
